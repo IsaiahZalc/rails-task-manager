@@ -1,0 +1,13 @@
+<div class="container tasks-container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center"><%= @task.title %></h2>
+      <p class="text-center"><%= @task.details %></p>
+      <p class="text-center">Completed: <%= @task.completed ? "Yes" : "No" %></p>
+      <div class="text-center">
+        <%= link_to "Back", tasks_path, class: "btn btn-secondary mr-2" %>
+        <%= link_to "Edit", edit_task_path(@task), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

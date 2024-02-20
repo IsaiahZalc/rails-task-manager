@@ -1,0 +1,21 @@
+<div class="container tasks-container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center">My Tasks</h1>
+      <ul class="list-group">
+        <% @tasks.each do |task| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <input type="checkbox" name="task_ids[]" value="<%= task.id %>">
+            <%= link_to task.title, task_path(task) %>
+            <%= link_to delete_task_path(task), method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Delete ?' } do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="text-center mt-3">
+        <%= link_to "Create Task", new_task_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
